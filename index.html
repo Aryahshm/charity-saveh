@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>خیریه امام حسین (ع) ساوه</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Vazirmatn Font (as fallback for IranSans) -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/misc/Farsi-digits/font-face.css" rel="stylesheet" type="text/css" />
+    
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#ec4899', // Pink 500
+                dark: '#be185d',    // Pink 700
+                light: '#fbcfe8',   // Pink 200
+              },
+              secondary: {
+                DEFAULT: '#8b5cf6', // Purple 500
+                dark: '#6d28d9',    // Purple 700
+                light: '#ddd6fe',   // Purple 200
+              },
+              glass: {
+                100: 'rgba(255, 255, 255, 0.1)',
+                200: 'rgba(255, 255, 255, 0.2)',
+                300: 'rgba(255, 255, 255, 0.3)',
+                dark: 'rgba(15, 23, 42, 0.6)',
+              }
+            },
+            fontFamily: {
+              sans: ['IranSans', 'Vazirmatn', 'sans-serif'],
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+              'hero-pattern': "url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1920&auto=format&fit=crop')",
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'bounce-slow': 'bounce 3s infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Simulating IranSans with Vazirmatn */
+      @font-face {
+        font-family: 'IranSans';
+        src: local('Vazirmatn'), url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/misc/Farsi-digits/Vazirmatn-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'IranSans', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Light Mode Background */
+      body {
+        background-color: #fdf2f8;
+        background-image: 
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,0.05) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,0.05) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(339,49%,30%,0.05) 0, transparent 50%);
+        background-attachment: fixed;
+        color: #1e293b;
+      }
+
+      /* Dark Mode Background */
+      .dark body {
+        background-color: #0f172a; /* Slate 900 */
+        background-image: 
+          radial-gradient(at 0% 0%, hsla(253,16%,7%,0.4) 0, transparent 50%), 
+          radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%), 
+          radial-gradient(at 100% 0%, hsla(339,49%,30%,0.2) 0, transparent 50%);
+        color: #f1f5f9;
+      }
+
+      /* Glass Card - Light Mode */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      /* Glass Card - Dark Mode Override */
+      .dark .glass-card {
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-card-dark {
+        background: rgba(15, 23, 42, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .dark .glass-nav {
+        background: rgba(15, 23, 42, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .glass-toast {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        animation: toastSlideIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+      }
+
+      @keyframes toastSlideIn {
+        from { transform: translateY(100%) scale(0.9); opacity: 0; }
+        to { transform: translateY(0) scale(1); opacity: 1; }
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fce7f3;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #ec4899, #8b5cf6);
+        border-radius: 5px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
